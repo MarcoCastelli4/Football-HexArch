@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static eu.happycoders.shop.adapter.in.rest.common.ControllerCommons.clientErrorException;
-import static eu.happycoders.shop.adapter.in.rest.common.CustomerIdParser.parseCustomerId;
 
 @Path("/teams")
 @Produces(MediaType.APPLICATION_JSON)

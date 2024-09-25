@@ -6,7 +6,6 @@ import jakarta.ws.rs.core.Response;
 /**
  * Common functionality for all REST controllers.
  *
- * @author Sven Woltmann
  */
 public final class ControllerCommons {
 

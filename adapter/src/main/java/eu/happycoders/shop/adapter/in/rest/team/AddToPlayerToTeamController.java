@@ -18,7 +18,6 @@ import jakarta.ws.rs.core.Response;
 /**
  * REST controller for all shopping cart use cases.
  *
- * @author Sven Woltmann
  */
 @Path("/teams")
 @Produces(MediaType.APPLICATION_JSON)

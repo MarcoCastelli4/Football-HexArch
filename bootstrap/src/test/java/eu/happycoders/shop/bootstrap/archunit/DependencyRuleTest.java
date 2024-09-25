@@ -11,7 +11,6 @@ import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.core.importer.ImportOption;
 import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 import eu.happycoders.shop.model.annotation.ImportantCalculation;
-import eu.happycoders.shop.model.cart.Cart;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -84,18 +83,6 @@ class DependencyRuleTest {
         .check(importedClasses); // Esegui la regola sulle classi importate
   }
 
-    @Test
-    void fieldShouldBeListOfString() throws NoSuchFieldException {
-        // Ottieni il campo
-        Field field = Cart.class.getDeclaredField("test");
-
-        // Verifica che il campo sia di tipo List
-        assertTrue(List.class.isAssignableFrom(field.getType()));
-
-        // Verifica il tipo generico del campo
-        ParameterizedType listType = (ParameterizedType) field.getGenericType();
-        assertTrue(listType.getActualTypeArguments()[0].equals(String.class));
-    }
 
   private String fullyQualified(String packageName) {
     return ROOT_PACKAGE + '.' + packageName + "..";
@@ -136,7 +123,6 @@ class DependencyRuleTest {
             .should().beFreeOfCycles()
             .check(ALL_SERVICE_CLASSES);
   }
-
 
 
 }

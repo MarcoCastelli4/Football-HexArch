@@ -1,6 +1,5 @@
 package eu.happycoders.shop.model.team;
 
-import eu.happycoders.shop.model.cart.NotEnoughItemsInStockException;
 import eu.happycoders.shop.model.player.Player;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

@@ -7,8 +7,6 @@ import java.util.List;
 
 /**
  * Demo teams and their players that are automatically stored in the team database.
- *
- * @author Sven Woltmann
  */
 public final class DemoTeam {
 

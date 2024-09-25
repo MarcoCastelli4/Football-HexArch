@@ -5,7 +5,6 @@ import org.jboss.resteasy.plugins.server.undertow.UndertowJaxrsServer;
 /**
  * Launcher for the application: starts the Undertow server and deploys the shop application.
  *
- * @author Sven Woltmann
  */
 public class Launcher {
 
