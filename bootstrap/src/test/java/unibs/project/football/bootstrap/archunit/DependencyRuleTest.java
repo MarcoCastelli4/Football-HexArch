@@ -21,13 +21,12 @@ import org.junit.jupiter.api.Test;
 class DependencyRuleTest {
 
   // i miei package che definiscono la struttura hex
-  private static final String ROOT_PACKAGE = "unibs.project.football";
-  private static final String MODEL_PACKAGE = "model";
-  private static final String APPLICATION_PACKAGE = "application";
-  private static final String PORT_PACKAGE = "application.port";
-  private static final String SERVICE_PACKAGE = "application.service";
-  private static final String ADAPTER_PACKAGE = "adapter";
-  private static final String BOOTSTRAP_PACKAGE = "bootstrap";
+  private static final String ROOT = "unibs.project.football";
+  private static final String MODEL = "model";
+  private static final String APPLICATION = "application";
+  private static final String PORT = "application.port";
+  private static final String SERVICE = "application.service";
+  private static final String ADAPTER = "adapter";
 
   private static final String CART_CLASS = "unibs.project.football.model.cart.Cart";
 
@@ -40,39 +39,28 @@ class DependencyRuleTest {
                   .importPackages("unibs.project.football.model");
 
   @Test
-  void checkDependencyRule() {
-    String importPackages = ROOT_PACKAGE + "..";
-    // importo tutte le classi del package
-    JavaClasses classesToCheck = new ClassFileImporter().importPackages(importPackages);
+  void checkHexagonalArchitecture() {
+    String importPackages = ROOT + "..";
+    JavaClasses classes = new ClassFileImporter().importPackages(importPackages);
 
-    checkNoDependencyFromTo(MODEL_PACKAGE, APPLICATION_PACKAGE, classesToCheck);
-    checkNoDependencyFromTo(MODEL_PACKAGE, ADAPTER_PACKAGE, classesToCheck);
-    checkNoDependencyFromTo(MODEL_PACKAGE, BOOTSTRAP_PACKAGE, classesToCheck);
+    verifyNoDependencyFromTo(MODEL, APPLICATION, classes);
+    verifyNoDependencyFromTo(MODEL, ADAPTER, classes);
+    verifyNoDependencyFromTo(MODEL, SERVICE, classes);
+    verifyNoDependencyFromTo(MODEL, PORT, classes);
 
-    checkNoDependencyFromTo(APPLICATION_PACKAGE, ADAPTER_PACKAGE, classesToCheck);
-    checkNoDependencyFromTo(APPLICATION_PACKAGE, BOOTSTRAP_PACKAGE, classesToCheck);
+    verifyNoDependencyFromTo(APPLICATION, ADAPTER, classes);
 
-    checkNoDependencyFromTo(PORT_PACKAGE, SERVICE_PACKAGE, classesToCheck);
+    verifyNoDependencyFromTo(PORT, SERVICE, classes);
 
-    checkNoDependencyFromTo(ADAPTER_PACKAGE, SERVICE_PACKAGE, classesToCheck);
-    checkNoDependencyFromTo(ADAPTER_PACKAGE, BOOTSTRAP_PACKAGE, classesToCheck);
+    verifyNoDependencyFromTo(ADAPTER, SERVICE, classes);
   }
 
-  private void checkNoDependencyFromTo(
-      String fromPackage, String toPackage, JavaClasses classesToCheck) {
-    noClasses()
-        .that()
-        .resideInAPackage(fullyQualified(fromPackage))
-        .should()
-        .dependOnClassesThat()
-        .resideInAPackage(fullyQualified(toPackage))
-        .check(classesToCheck);
+  private void verifyNoDependencyFromTo(
+      String fromPackage, String toPackage, JavaClasses classes) {
+    noClasses().that().resideInAPackage(ROOT + '.' + fromPackage + "..").should()
+            .dependOnClassesThat().resideInAPackage(ROOT + '.' + toPackage + "..").check(classes);
   }
 
-
-  private String fullyQualified(String packageName) {
-    return ROOT_PACKAGE + '.' + packageName + "..";
-  }
 
   @Test
   void checkTypeErasureLimitation() {
@@ -120,7 +108,7 @@ class DependencyRuleTest {
   void modulesDependencyTest() {
     layeredArchitecture()
             .consideringOnlyDependenciesInLayers()
-            .ensureAllClassesAreContainedInArchitectureIgnoring(MODEL_PACKAGE)
+            .ensureAllClassesAreContainedInArchitectureIgnoring(MODEL)
             .layer("player")   .definedBy("unibs.project.football.model.player..")
             .layer("team")  .definedBy("unibs.project.football.model.team..")
             .layer("message")  .definedBy("unibs.project.football.model.message..")
