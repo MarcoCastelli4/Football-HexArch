@@ -1,9 +1,9 @@
 package unibs.project.football.adapter.in.rest.message;
 
-import unibs.project.football.application.port.in.message.messageUseCase;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.QueryParam;
+import unibs.project.football.application.port.in.message.messageUseCase;
 
 @Path("/messages")
 public class messageController {

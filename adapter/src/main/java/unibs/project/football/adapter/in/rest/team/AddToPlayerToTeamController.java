@@ -2,11 +2,6 @@ package unibs.project.football.adapter.in.rest.team;
 
 import static unibs.project.football.adapter.in.rest.common.ControllerCommons.clientErrorException;
 
-import unibs.project.football.application.port.in.team.AddPlayerToTeamUseCase;
-import unibs.project.football.application.port.in.team.TeamtNotFoundException;
-import unibs.project.football.model.player.Player;
-import unibs.project.football.model.team.Team;
-import unibs.project.football.model.team.TeamHasMaxNumberOfPlayer;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
@@ -14,6 +9,11 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import unibs.project.football.application.port.in.team.AddPlayerToTeamUseCase;
+import unibs.project.football.application.port.in.team.TeamtNotFoundException;
+import unibs.project.football.model.player.Player;
+import unibs.project.football.model.team.Team;
+import unibs.project.football.model.team.TeamHasMaxNumberOfPlayer;
 
 /** REST controller for all shopping cart use cases. */
 @Path("/teams")

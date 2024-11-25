@@ -1,7 +1,7 @@
 package unibs.project.football.application.port.in.team;
 
-import unibs.project.football.model.player.Player;
 import java.util.List;
+import unibs.project.football.model.player.Player;
 
 public interface GetPlayersUseCase {
 

@@ -1,8 +1,8 @@
 package unibs.project.football.adapter.out.persistence;
 
+import java.util.List;
 import unibs.project.football.model.player.Player;
 import unibs.project.football.model.team.Team;
-import java.util.List;
 
 /** Demo teams and their players that are automatically stored in the team database. */
 public final class DemoTeam {

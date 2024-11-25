@@ -2,12 +2,12 @@ package unibs.project.football.adapter.in.rest.team;
 
 import static unibs.project.football.adapter.in.rest.common.ControllerCommons.clientErrorException;
 
-import unibs.project.football.application.port.in.team.AddTeamUseCase;
-import unibs.project.football.application.port.in.team.TeamAlreadyExistException;
-import unibs.project.football.model.team.Team;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import unibs.project.football.application.port.in.team.AddTeamUseCase;
+import unibs.project.football.application.port.in.team.TeamAlreadyExistException;
+import unibs.project.football.model.team.Team;
 
 @Path("/teams")
 @Produces(MediaType.APPLICATION_JSON)

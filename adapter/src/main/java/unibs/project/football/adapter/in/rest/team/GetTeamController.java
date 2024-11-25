@@ -2,9 +2,6 @@ package unibs.project.football.adapter.in.rest.team;
 
 import static unibs.project.football.adapter.in.rest.common.ControllerCommons.clientErrorException;
 
-import unibs.project.football.application.port.in.team.GetPlayersUseCase;
-import unibs.project.football.application.port.in.team.TeamtNotFoundException;
-import unibs.project.football.model.player.Player;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
@@ -12,6 +9,9 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import java.util.List;
+import unibs.project.football.application.port.in.team.GetPlayersUseCase;
+import unibs.project.football.application.port.in.team.TeamtNotFoundException;
+import unibs.project.football.model.player.Player;
 
 @Path("/teams")
 @Produces(MediaType.APPLICATION_JSON)

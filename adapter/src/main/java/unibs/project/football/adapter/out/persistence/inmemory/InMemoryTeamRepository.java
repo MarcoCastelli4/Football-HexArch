@@ -1,11 +1,11 @@
 package unibs.project.football.adapter.out.persistence.inmemory;
 
-import unibs.project.football.adapter.out.persistence.DemoTeam;
-import unibs.project.football.application.port.out.persistence.TeamRepository;
-import unibs.project.football.model.team.Team;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import unibs.project.football.adapter.out.persistence.DemoTeam;
+import unibs.project.football.application.port.out.persistence.TeamRepository;
+import unibs.project.football.model.team.Team;
 
 public class InMemoryTeamRepository implements TeamRepository {
 

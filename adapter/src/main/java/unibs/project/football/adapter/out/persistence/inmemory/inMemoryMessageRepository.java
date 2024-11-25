@@ -1,9 +1,9 @@
 package unibs.project.football.adapter.out.persistence.inmemory;
 
-import unibs.project.football.application.port.out.persistence.messageRepository;
-import unibs.project.football.model.message.Message;
 import java.io.FileWriter;
 import java.io.IOException;
+import unibs.project.football.application.port.out.persistence.messageRepository;
+import unibs.project.football.model.message.Message;
 
 public class inMemoryMessageRepository implements messageRepository {
 

@@ -1,8 +1,8 @@
 package unibs.project.football.adapter.out.persistence.jpa;
 
-import unibs.project.football.model.player.Player;
 import java.util.List;
 import java.util.Optional;
+import unibs.project.football.model.player.Player;
 
 /** Maps a model product to a JPA product and vice versa. */
 final class PlayerMapper {

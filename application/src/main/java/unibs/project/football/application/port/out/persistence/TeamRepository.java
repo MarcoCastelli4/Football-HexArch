@@ -1,7 +1,7 @@
 package unibs.project.football.application.port.out.persistence;
 
-import unibs.project.football.model.team.Team;
 import java.util.Optional;
+import unibs.project.football.model.team.Team;
 
 public interface TeamRepository {
 

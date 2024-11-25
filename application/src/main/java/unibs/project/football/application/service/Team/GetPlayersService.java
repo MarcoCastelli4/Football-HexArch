@@ -1,12 +1,12 @@
 package unibs.project.football.application.service.Team;
 
+import java.util.List;
+import java.util.Objects;
 import unibs.project.football.application.port.in.team.GetPlayersUseCase;
 import unibs.project.football.application.port.in.team.TeamtNotFoundException;
 import unibs.project.football.application.port.out.persistence.TeamRepository;
 import unibs.project.football.model.player.Player;
 import unibs.project.football.model.team.Team;
-import java.util.List;
-import java.util.Objects;
 
 public class GetPlayersService implements GetPlayersUseCase {
 

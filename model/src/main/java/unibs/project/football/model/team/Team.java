@@ -1,11 +1,11 @@
 package unibs.project.football.model.team;
 
-import unibs.project.football.model.player.Player;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.Accessors;
+import unibs.project.football.model.player.Player;
 
 @Accessors(fluent = true)
 @RequiredArgsConstructor

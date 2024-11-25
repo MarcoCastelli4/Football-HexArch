@@ -1,5 +1,7 @@
 package unibs.project.football.bootstrap;
 
+import jakarta.ws.rs.core.Application;
+import java.util.Set;
 import unibs.project.football.adapter.in.rest.message.messageController;
 import unibs.project.football.adapter.in.rest.team.AddTeamController;
 import unibs.project.football.adapter.in.rest.team.AddToPlayerToTeamController;
@@ -16,8 +18,6 @@ import unibs.project.football.application.service.Team.AddPlayerToTeamService;
 import unibs.project.football.application.service.Team.AddTeamService;
 import unibs.project.football.application.service.Team.GetPlayersService;
 import unibs.project.football.application.service.message.messageService;
-import jakarta.ws.rs.core.Application;
-import java.util.Set;
 
 /**
  * The application configuration for the Undertow server. Evaluates the persistence configuration,

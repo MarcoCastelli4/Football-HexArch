@@ -1,10 +1,10 @@
 package unibs.project.football.adapter.out.persistence.jpa;
 
-import unibs.project.football.application.port.out.persistence.TeamRepository;
-import unibs.project.football.model.team.Team;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import java.util.Optional;
+import unibs.project.football.application.port.out.persistence.TeamRepository;
+import unibs.project.football.model.team.Team;
 
 public class JpaTeamRepository implements TeamRepository {
 

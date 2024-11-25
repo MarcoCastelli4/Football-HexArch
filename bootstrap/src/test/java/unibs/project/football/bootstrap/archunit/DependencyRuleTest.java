@@ -5,16 +5,11 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 import static com.tngtech.archunit.library.Architectures.layeredArchitecture;
 import static com.tngtech.archunit.library.dependencies.SlicesRuleDefinition.slices;
 
-import com.google.protobuf.Service;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.core.importer.ImportOption;
 import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
-
-import java.lang.annotation.Annotation;
 import java.util.ArrayList;
-
-import org.hibernate.mapping.Component;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -31,12 +26,14 @@ class DependencyRuleTest {
   private static final String CART_CLASS = "unibs.project.football.model.cart.Cart";
 
   private static final JavaClasses ALL_SERVICE_CLASSES =
-          new ClassFileImporter().withImportOption(new ImportOption.DoNotIncludeTests())
+      new ClassFileImporter()
+          .withImportOption(new ImportOption.DoNotIncludeTests())
           .importPackages("unibs.project.football");
 
   private static final JavaClasses MODEL_CLASSES =
-          new ClassFileImporter().withImportOption(new ImportOption.DoNotIncludeTests())
-                  .importPackages("unibs.project.football.model");
+      new ClassFileImporter()
+          .withImportOption(new ImportOption.DoNotIncludeTests())
+          .importPackages("unibs.project.football.model");
 
   @Test
   void checkHexagonalArchitecture() {
@@ -55,22 +52,30 @@ class DependencyRuleTest {
     verifyNoDependencyFromTo(ADAPTER, SERVICE, classes);
   }
 
-  private void verifyNoDependencyFromTo(
-      String fromPackage, String toPackage, JavaClasses classes) {
-    noClasses().that().resideInAPackage(ROOT + '.' + fromPackage + "..").should()
-            .dependOnClassesThat().resideInAPackage(ROOT + '.' + toPackage + "..").check(classes);
+  private void verifyNoDependencyFromTo(String fromPackage, String toPackage, JavaClasses classes) {
+    noClasses()
+        .that()
+        .resideInAPackage(ROOT + '.' + fromPackage + "..")
+        .should()
+        .dependOnClassesThat()
+        .resideInAPackage(ROOT + '.' + toPackage + "..")
+        .check(classes);
   }
-
 
   @Test
   void checkTypeErasureLimitation() {
-    JavaClasses importedClasses = new ClassFileImporter().importPackages("unibs.project.football.model.example.A");
+    JavaClasses importedClasses =
+        new ClassFileImporter().importPackages("unibs.project.football.model.example.A");
 
     // Definiamo una regola per verificare che nella classe Cart ci sia un campo di tipo List
     ArchRuleDefinition.fields()
-        .that().areDeclaredIn("unibs.project.football.model.example.A.A")
-        .and().haveRawType(ArrayList.class) // Controlla se il campo è una List
-        .should().beDeclaredInClassesThat().haveSimpleName("A") // Limita alla classe A
+        .that()
+        .areDeclaredIn("unibs.project.football.model.example.A.A")
+        .and()
+        .haveRawType(ArrayList.class) // Controlla se il campo è una List
+        .should()
+        .beDeclaredInClassesThat()
+        .haveSimpleName("A") // Limita alla classe A
         .check(importedClasses);
   }
 
@@ -81,9 +86,12 @@ class DependencyRuleTest {
         new ClassFileImporter().importPackages("unibs.project.football.model.example");
 
     noClasses()
-        .that().resideInAPackage("unibs.project.football.model.example.A")
-        .should().dependOnClassesThat()
-        .resideInAPackage("unibs.project.football.model.example.B").check(importedClasses);
+        .that()
+        .resideInAPackage("unibs.project.football.model.example.A")
+        .should()
+        .dependOnClassesThat()
+        .resideInAPackage("unibs.project.football.model.example.B")
+        .check(importedClasses);
   }
 
   @Test
@@ -98,28 +106,28 @@ class DependencyRuleTest {
 
   @Test
   @DisplayName("Project should be free of cycles")
-  void projectShouldBeFreeOfCycles(){
-    slices().matching("%s.(**)".formatted("unibs.project.football"))
-            .should().beFreeOfCycles().check(ALL_SERVICE_CLASSES);
+  void projectShouldBeFreeOfCycles() {
+    slices()
+        .matching("%s.(**)".formatted("unibs.project.football"))
+        .should()
+        .beFreeOfCycles()
+        .check(ALL_SERVICE_CLASSES);
   }
 
   @Test
   @DisplayName("Each module should depend only on declared modules")
   void modulesDependencyTest() {
     layeredArchitecture()
-            .consideringOnlyDependenciesInLayers()
-            .ensureAllClassesAreContainedInArchitectureIgnoring(MODEL)
-            .layer("player")   .definedBy("unibs.project.football.model.player..")
-            .layer("team")  .definedBy("unibs.project.football.model.team..")
-            .layer("message")  .definedBy("unibs.project.football.model.message..")
-            .whereLayer("player")   .mayOnlyAccessLayers("team")
-            .check(MODEL_CLASSES);
+        .consideringOnlyDependenciesInLayers()
+        .ensureAllClassesAreContainedInArchitectureIgnoring(MODEL)
+        .layer("player")
+        .definedBy("unibs.project.football.model.player..")
+        .layer("team")
+        .definedBy("unibs.project.football.model.team..")
+        .layer("message")
+        .definedBy("unibs.project.football.model.message..")
+        .whereLayer("player")
+        .mayOnlyAccessLayers("team")
+        .check(MODEL_CLASSES);
   }
-
-
-
-
-
-
-
 }

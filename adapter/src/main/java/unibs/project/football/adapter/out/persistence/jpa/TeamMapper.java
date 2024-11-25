@@ -1,10 +1,10 @@
 package unibs.project.football.adapter.out.persistence.jpa;
 
-import unibs.project.football.model.player.Player;
-import unibs.project.football.model.team.Team;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import unibs.project.football.model.player.Player;
+import unibs.project.football.model.team.Team;
 
 final class TeamMapper {
 
