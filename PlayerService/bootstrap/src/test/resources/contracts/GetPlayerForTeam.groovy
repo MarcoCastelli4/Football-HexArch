@@ -6,7 +6,7 @@ Contract.make {
     description "Should return a list of players for a given team"
     request {
         method GET()
-        urlPath("player/Juventus/all") {
+        urlPath("/player/Juventus/all") {
             queryParameters {
                 parameter("team", "Juventus") // Request filtered by team name
             }

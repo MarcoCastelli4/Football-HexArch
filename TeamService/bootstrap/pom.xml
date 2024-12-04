@@ -20,6 +20,19 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-contract-wiremock</artifactId>
+            <version>4.0.4</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-contract-stub-runner</artifactId>
+            <version>4.0.4</version>
+            <scope>test</scope>
+        </dependency>
+
 
         <!-- The "application" and "model" modules are transitively included already;
              but we need to include them *explicitly* so that the aggregated JaCoCo report will cover them. -->
@@ -57,12 +70,6 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-contract-stub-runner</artifactId>
-        <version>4.1.1</version>
-        <scope>test</scope>
-        </dependency>
 
         <!-- To use the "attached test JAR" from the "adapter" module -->
 

@@ -6,7 +6,7 @@ import org.springframework.web.client.RestTemplate;
 import unibs.project.football.team.port.in.team.GetBestPlayerForTeamUseCase;
 import unibs.project.football.team.port.in.team.InsertPlayerToTeamUseCase;
 import unibs.project.football.team.port.out.AddPlayer;
-import unibs.project.football.team.port.out.FindBestPlayerForTeam;
+import unibs.project.football.team.port.out.OutdoorToPlayerService;
 import unibs.project.football.team.port.out.persistence.TeamRepository;
 import unibs.project.football.team.service.Team.GetBestPlayerForTeamService;
 import unibs.project.football.team.service.Team.InsertPlayerToTeamService;
@@ -16,7 +16,7 @@ public class SpringAppConfig {
 
   @Bean
   GetBestPlayerForTeamUseCase getBestPlayerForTeamUseCase(
-      FindBestPlayerForTeam bestTeamPlayer, TeamRepository teamRepository) {
+          OutdoorToPlayerService bestTeamPlayer, TeamRepository teamRepository) {
     return new GetBestPlayerForTeamService(bestTeamPlayer, teamRepository);
   }
 
