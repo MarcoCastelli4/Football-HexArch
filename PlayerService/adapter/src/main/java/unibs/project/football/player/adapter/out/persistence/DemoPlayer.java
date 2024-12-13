@@ -1,9 +1,9 @@
 package unibs.project.football.player.adapter.out.persistence;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import unibs.project.football.player.Injurie;
+import unibs.project.football.player.OldTeam;
 import unibs.project.football.player.Player;
 
 /** Demo teams and their players that are automatically stored in the team database. */
@@ -13,20 +13,20 @@ public final class DemoPlayer {
 
   static {
     // Creating injuries and old teams for some players
-    Map<Integer, String> injuries1 = new HashMap<>();
-    injuries1.put(2010, "Knee injury");
-    injuries1.put(2020, "Hamstring injury");
+    ArrayList<Injurie> injuries1 = new ArrayList<>();
+    injuries1.add(new Injurie(2010, "Knee injury"));
+    injuries1.add(new Injurie(2020, "Hamstring injury"));
 
-    Map<Integer, String> oldTeams1 = new HashMap<>();
-    oldTeams1.put(2010, "Real Madrid");
-    oldTeams1.put(2007, "Manchester United");
+    ArrayList<OldTeam> oldTeams1 = new ArrayList<>();
+    oldTeams1.add(new OldTeam(2010, "Real Madrid"));
+    oldTeams1.add(new OldTeam(2007, "Manchester United"));
 
     // Player for Juventus
     Player player1 =
         new Player(
             "Juventus",
             "Cristiano Ronaldo",
-            "Striker",
+            "Forward",
             700,
             36,
             "Male",
@@ -35,11 +35,11 @@ public final class DemoPlayer {
             injuries1,
             oldTeams1);
 
-    Map<Integer, String> injuries2 = new HashMap<>();
-    injuries2.put(2021, "Ankle sprain");
+    ArrayList<Injurie> injuries2 = new ArrayList<>();
+    injuries2.add(new Injurie(2021, "Ankle sprain"));
 
-    Map<Integer, String> oldTeams2 = new HashMap<>();
-    oldTeams2.put(2022, "AC Milan");
+    ArrayList<OldTeam> oldTeams2 = new ArrayList<>();
+    oldTeams2.add(new OldTeam(2022, "AC Milan"));
 
     // Player for Milan
     Player player2 =
@@ -55,22 +55,22 @@ public final class DemoPlayer {
             injuries2,
             oldTeams2);
 
-    Map<Integer, String> injuries3 = new HashMap<>();
-    injuries3.put(2019, "Back problem");
+    ArrayList<Injurie> injuries3 = new ArrayList<>();
+    injuries3.add(new Injurie(2019, "Back problem"));
 
-    Map<Integer, String> oldTeams3 = new HashMap<>();
-    oldTeams3.put(2021, "Barcelona");
+    ArrayList<OldTeam> oldTeams3 = new ArrayList<>();
+    oldTeams3.add(new OldTeam(2021, "Barcelona"));
 
     // Player for Inter
     Player player3 =
         new Player(
             "Inter", "Romelu Lukaku", "Striker", 400, 28, "Male", 190, 94, injuries3, oldTeams3);
 
-    Map<Integer, String> injuries4 = new HashMap<>();
-    injuries4.put(2020, "Knee injuries");
+    ArrayList<Injurie> injuries4 = new ArrayList<>();
+    injuries4.add(new Injurie(2020, "Knee injuries"));
 
-    Map<Integer, String> oldTeams4 = new HashMap<>();
-    oldTeams4.put(2010, "Bari");
+    ArrayList<OldTeam> oldTeams4 = new ArrayList<>();
+    oldTeams4.add(new OldTeam(2010, "Bari"));
 
     // Player for Juventus
     Player player4 =
@@ -86,24 +86,24 @@ public final class DemoPlayer {
             injuries4,
             oldTeams4);
 
-    Map<Integer, String> injuries5 = new HashMap<>();
-    injuries5.put(2011, "Knee injury");
-    injuries5.put(2012, "Hamstring injury");
+    ArrayList<Injurie> injuries5 = new ArrayList<>();
+    injuries5.add(new Injurie(2011, "Knee injury"));
+    injuries5.add(new Injurie(2012, "Hamstring injury"));
 
-    Map<Integer, String> oldTeams5 = new HashMap<>();
-    oldTeams5.put(2015, "Real Madrid");
-    oldTeams5.put(2020, "Juventus");
-    oldTeams5.put(2022, "Atletico Madrid");
+    ArrayList<OldTeam> oldTeams5 = new ArrayList<>();
+    oldTeams5.add(new OldTeam(2015, "Real Madrid"));
+    oldTeams5.add(new OldTeam(2020, "Juventus"));
+    oldTeams5.add(new OldTeam(2022, "Atletico Madrid"));
 
     // Player for Milan
     Player player5 =
         new Player(
             "Milan", "Alvaro Morata", "Striker", 90, 36, "Male", 187, 83, injuries5, oldTeams5);
 
-    Map<Integer, String> injuries6 = new HashMap<>();
+    ArrayList<Injurie> injuries6 = new ArrayList<>();
 
-    Map<Integer, String> oldTeams6 = new HashMap<>();
-    oldTeams6.put(2000, "Juventus");
+    ArrayList<OldTeam> oldTeams6 = new ArrayList<>();
+    oldTeams6.add(new OldTeam(2000, "Juventus"));
 
     // Player for Juventus
     Player player6 =

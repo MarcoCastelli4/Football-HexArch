@@ -1,10 +1,14 @@
 package unibs.project.football.team.adapter;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.ArrayList;
 import java.util.Map;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import unibs.project.football.team.player.Injurie;
+import unibs.project.football.team.player.OldTeam;
 
 @Getter
 @AllArgsConstructor
@@ -36,17 +40,13 @@ public class PlayerDTO {
   private int weight;
 
   @JsonProperty("injuries")
-  private Map<Integer, String> injuries;
+  private ArrayList<Injurie> injuries;
 
   @JsonProperty("oldTeams")
-  private Map<Integer, String> oldTeams;
+  private ArrayList<OldTeam> oldTeams;
 
   public String getTeam() {
     return team;
-  }
-
-  public Map<Integer, String> getInjuries() {
-    return injuries;
   }
 
   public int getWeight() {
@@ -77,47 +77,11 @@ public class PlayerDTO {
     return name;
   }
 
-  public Map<Integer, String> getOldTeams() {
+  public ArrayList<OldTeam> getOldTeams() {
     return oldTeams;
   }
 
-  public void setTeam(String team) {
-    this.team = team;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public void setRole(String role) {
-    this.role = role;
-  }
-
-  public void setGoal(int goal) {
-    this.goal = goal;
-  }
-
-  public void setAge(int age) {
-    this.age = age;
-  }
-
-  public void setGender(String gender) {
-    this.gender = gender;
-  }
-
-  public void setHeight(int height) {
-    this.height = height;
-  }
-
-  public void setWeight(int weight) {
-    this.weight = weight;
-  }
-
-  public void setInjuries(Map<Integer, String> injuries) {
-    this.injuries = injuries;
-  }
-
-  public void setOldTeams(Map<Integer, String> oldTeams) {
-    this.oldTeams = oldTeams;
+  public ArrayList<Injurie> getInjuries() {
+    return injuries;
   }
 }

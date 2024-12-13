@@ -12,31 +12,34 @@ public class PlayerMapper {
     }
 
     return new Player(
-        playerDTO.getTeam(),
-        playerDTO.getName(),
-        playerDTO.getRole(),
-        playerDTO.getGoal(),
-        playerDTO.getAge(),
-        playerDTO.getGender(),
-        playerDTO.getHeight(),
-        playerDTO.getWeight(),
-        playerDTO.getInjuries(),
-        playerDTO.getOldTeams());
+            playerDTO.getTeam(),
+            playerDTO.getName(),
+            playerDTO.getRole(),
+            playerDTO.getGoal(),
+            playerDTO.getAge(),
+            playerDTO.getGender(),
+            playerDTO.getHeight(),
+            playerDTO.getWeight(),
+            playerDTO.getInjuries(),
+            playerDTO.getOldTeams());
   }
 
-  // Convert Player to PlayerDTO
-  public static PlayerDTO toDTO(Player player) {
-    PlayerDTO playerDTO = new PlayerDTO();
-    playerDTO.setTeam(player.getTeam());
-    playerDTO.setName(player.getName());
-    playerDTO.setRole(player.getRole());
-    playerDTO.setGoal(player.getGoal());
-    playerDTO.setAge(player.getAge());
-    playerDTO.setGender(player.getGender());
-    playerDTO.setHeight(player.getHeight());
-    playerDTO.setWeight(player.getWeight());
-    playerDTO.setInjuries(player.getInjuries());
-    playerDTO.setOldTeams(player.getOldTeams());
-    return playerDTO;
+  // Converts from Player to PlayerDTO
+  public PlayerDTO toDTO(Player player) {
+    if (player == null) {
+      return null; // Return null if the player is null
+    }
+
+    return new PlayerDTO(
+            player.getTeam(),
+            player.getName(),
+            player.getRole(),
+            player.getGoal(),
+            player.getAge(),
+            player.getGender(),
+            player.getHeight(),
+            player.getWeight(),
+            player.getInjuries(),
+            player.getOldTeams());
   }
 }

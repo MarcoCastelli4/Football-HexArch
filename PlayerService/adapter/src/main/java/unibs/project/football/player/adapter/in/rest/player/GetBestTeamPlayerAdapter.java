@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import unibs.project.football.player.adapter.out.persistence.PlayerDTO;
 import unibs.project.football.player.adapter.out.persistence.PlayerMapper;
 import unibs.project.football.player.port.in.player.GetBestTeamPlayerUseCase;
 
@@ -23,7 +24,12 @@ public class GetBestTeamPlayerAdapter {
 
   @GetMapping("/{teamName}/bestPlayer")
   public ResponseEntity<Object> getGoals(@PathVariable String teamName) {
-    return ResponseEntity.ok(
-        playerMapper.toDTO(getBestTeamPlayerUseCase.getBestTeamPlayer(teamName)));
+
+    PlayerDTO player = playerMapper.toDTO(getBestTeamPlayerUseCase.getBestTeamPlayer(teamName));
+    if (player != null) {
+      return ResponseEntity.ok(player);
+    } else {
+      return ResponseEntity.notFound().build();
+    }
   }
 }

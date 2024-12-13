@@ -5,12 +5,7 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.EventListener;
-import org.springframework.stereotype.Service;
 import unibs.project.football.team.adapter.out.OutdoorToPlayerService;
-import unibs.project.football.team.player.Player;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @Configuration
 class CallPlayerServiceConfig {

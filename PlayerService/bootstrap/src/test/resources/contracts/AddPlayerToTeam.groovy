@@ -8,28 +8,30 @@ Contract.make {
     request {
         method PUT()
         url "/player/addPlayer"
-        body([
-                name      : "Marco Castelli",
-                role  : "Defender",
-                age       : 24,
-                goals: 35,
-                team      : "Juventus",
-                gender: "Male",
-                "height": 183,
-                "weight":70,
-                injuries  : [
-                        "2016": "Ankle injury",
-                        "2017": "Ankle injury",
-                        "2018": "Hamstring injury",
-                        "2022": "Ankle injury",
-                        "2023": "Ankle injury",
-                        "2024": "Hamstring injury",
+        body(
+                name      : $(anyNonEmptyString()),
+                role      : $(regex("(Forward|Midfielder|Defender|Goalkeeper)")),
+                age       : $(anyPositiveInt()),
+                goals     : $(anyPositiveInt()),
+                team      : $(anyNonEmptyString()),
+                gender    : $(anyOf('Male','Female')),
+                height    : $(anyPositiveInt()),
+                weight    : $(anyPositiveInt()),
+                injuries : [
+                        [
+                                year :$(regex("[1-9][0-9]{3}")),
+                                type: $(anyNonEmptyString())
+                        ]
                 ],
-                oldTeams  : [
-                        "2016": "Darfo Boario",
-                        "2018": "Us Breno"
+                oldTeams : [
+                        [
+                                year :$(regex("[1-9][0-9]{3}")),
+                                team: $(anyNonEmptyString())
+                        ]
                 ]
-        ])
+
+        )
+
         headers {
             contentType applicationJson()
         }

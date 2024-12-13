@@ -6,11 +6,7 @@ Contract.make {
     description "Should return the player in the team with best scores"
     request {
         method GET()
-        urlPath("/player/Juventus/bestPlayer") {
-            queryParameters {
-                parameter("team", "Juventus") // Request filtered by team name
-            }
-        }
+        url(regex("/player/[a-zA-Z0-9]+/bestPlayer"))
     }
     response {
         status 200
@@ -18,22 +14,24 @@ Contract.make {
             contentType(applicationJson())
         }
         body(
-                [
-                        name      : "Cristiano Ronaldo",
-                        role  : "Striker",
-                        age       : 36,
-                        goals: 700,
-                        team      : "Juventus",
-                        gender: "Male",
-                        "height": 187,
-                        "weight":83,
-                        injuries  : [
-                                "2010": "Knee injury",
-                                "2020": "Hamstring injury"
-                        ],
-                        oldTeams  : [
-                                "2010": "Real Madrid",
-                                "2007": "Manchester United"
+                name      : $(anyNonEmptyString()),
+                role      : $(regex("(Forward|Midfielder|Defender|Goalkeeper)")),
+                age       : $(anyPositiveInt()),
+                goals     : $(anyPositiveInt()),
+                team      : $(anyNonEmptyString()),
+                gender    : $(anyOf('Male','Female')),
+                height    : $(anyPositiveInt()),
+                weight    : $(anyPositiveInt()),
+                injuries : [
+                        [
+                                year :$(regex("[1-9][0-9]{3}")),
+                                type: $(anyNonEmptyString())
+                        ]
+                ],
+                oldTeams : [
+                        [
+                                year :$(regex("[1-9][0-9]{3}")),
+                                team: $(anyNonEmptyString())
                         ]
                 ]
                 )

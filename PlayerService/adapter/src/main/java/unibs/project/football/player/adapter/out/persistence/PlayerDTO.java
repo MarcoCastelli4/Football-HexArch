@@ -1,10 +1,12 @@
 package unibs.project.football.player.adapter.out.persistence;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.Map;
+import java.util.ArrayList;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import unibs.project.football.player.Injurie;
+import unibs.project.football.player.OldTeam;
 
 @Getter
 @AllArgsConstructor
@@ -36,17 +38,13 @@ public class PlayerDTO {
   private int weight;
 
   @JsonProperty("injuries")
-  private Map<Integer, String> injuries;
+  private ArrayList<Injurie> injuries;
 
   @JsonProperty("oldTeams")
-  private Map<Integer, String> oldTeams;
+  private ArrayList<OldTeam> oldTeams;
 
   public String getTeam() {
     return team;
-  }
-
-  public Map<Integer, String> getInjuries() {
-    return injuries;
   }
 
   public int getWeight() {
@@ -77,7 +75,11 @@ public class PlayerDTO {
     return name;
   }
 
-  public Map<Integer, String> getOldTeams() {
+  public ArrayList<OldTeam> getOldTeams() {
     return oldTeams;
+  }
+
+  public ArrayList<Injurie> getInjuries() {
+    return injuries;
   }
 }

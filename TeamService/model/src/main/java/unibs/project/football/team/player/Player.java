@@ -1,6 +1,8 @@
 package unibs.project.football.team.player;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
@@ -37,17 +39,13 @@ public class Player {
   private int weight;
 
   @JsonProperty("injuries")
-  private Map<Integer, String> injuries;
+  private ArrayList<Injurie> injuries;
 
   @JsonProperty("oldTeams")
-  private Map<Integer, String> oldTeams;
+  private ArrayList<OldTeam> oldTeams;
 
   public String getTeam() {
     return team;
-  }
-
-  public Map<Integer, String> getInjuries() {
-    return injuries;
   }
 
   public int getWeight() {
@@ -78,8 +76,12 @@ public class Player {
     return name;
   }
 
-  public Map<Integer, String> getOldTeams() {
+  public ArrayList<OldTeam> getOldTeams() {
     return oldTeams;
+  }
+
+  public ArrayList<Injurie> getInjuries() {
+    return injuries;
   }
 
   @Override
@@ -88,15 +90,15 @@ public class Player {
     if (o == null || getClass() != o.getClass()) return false;
     Player player = (Player) o;
     return age == player.age
-        && Objects.equals(getName(), player.getName())
-        && Objects.equals(getRole(), player.getRole())
-        && Objects.equals(getTeam(), player.getTeam())
-        && Objects.equals(getGoal(), player.getGoal())
-        && Objects.equals(getAge(), player.getAge())
-        && Objects.equals(getGender(), player.getGender())
-        && Objects.equals(getHeight(), player.getHeight())
-        && Objects.equals(getWeight(), player.getWeight())
-        && Objects.equals(getInjuries(), player.getInjuries())
-        && Objects.equals(getOldTeams(), player.getOldTeams());
+            && Objects.equals(getName(), player.getName())
+            && Objects.equals(getRole(), player.getRole())
+            && Objects.equals(getTeam(), player.getTeam())
+            && Objects.equals(getGoal(), player.getGoal())
+            && Objects.equals(getAge(), player.getAge())
+            && Objects.equals(getGender(), player.getGender())
+            && Objects.equals(getHeight(), player.getHeight())
+            && Objects.equals(getWeight(), player.getWeight())
+            && Objects.equals(getInjuries(), player.getInjuries())
+            && Objects.equals(getOldTeams(), player.getOldTeams());
   }
 }

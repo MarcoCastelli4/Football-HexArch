@@ -25,8 +25,7 @@ public class InsertPlayerToTeamController {
   @PutMapping("/addPlayer")
   public ResponseEntity<String> addPlayerToTeam(@RequestBody PlayerDTO playerDTO) {
     try {
-      insertPlayerToTeamUseCase.insertPlayerToTeam(
-          playerDTO.getTeam(), playerMapper.toEntity(playerDTO));
+      insertPlayerToTeamUseCase.insertPlayerToTeam(playerDTO.getTeam(), playerMapper.toEntity(playerDTO));
 
       return ResponseEntity.ok("Player added successfully");
     } catch (Exception e) {

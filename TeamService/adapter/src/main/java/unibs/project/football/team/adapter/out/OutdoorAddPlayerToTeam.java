@@ -1,7 +1,6 @@
 package unibs.project.football.team.adapter.out;
 
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import unibs.project.football.team.adapter.PlayerMapper;
 import unibs.project.football.team.player.Player;

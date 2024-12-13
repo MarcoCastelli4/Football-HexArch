@@ -1,7 +1,7 @@
 package unibs.project.football.player;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.Map;
+import java.util.ArrayList;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,17 +37,13 @@ public class Player {
   private int weight;
 
   @JsonProperty("injuries")
-  private Map<Integer, String> injuries;
+  private ArrayList<Injurie> injuries;
 
   @JsonProperty("oldTeams")
-  private Map<Integer, String> oldTeams;
+  private ArrayList<OldTeam> oldTeams;
 
   public String getTeam() {
     return team;
-  }
-
-  public Map<Integer, String> getInjuries() {
-    return injuries;
   }
 
   public int getWeight() {
@@ -78,8 +74,12 @@ public class Player {
     return name;
   }
 
-  public Map<Integer, String> getOldTeams() {
+  public ArrayList<OldTeam> getOldTeams() {
     return oldTeams;
+  }
+
+  public ArrayList<Injurie> getInjuries() {
+    return injuries;
   }
 
   @Override
