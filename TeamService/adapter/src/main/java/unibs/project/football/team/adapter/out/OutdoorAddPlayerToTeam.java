@@ -2,6 +2,7 @@ package unibs.project.football.team.adapter.out;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+import unibs.project.football.team.adapter.PlayerDTOEr;
 import unibs.project.football.team.adapter.PlayerMapper;
 import unibs.project.football.team.player.Player;
 import unibs.project.football.team.port.out.AddPlayer;
@@ -23,6 +24,7 @@ public class OutdoorAddPlayerToTeam implements AddPlayer {
     try {
 
       restTemplate.put(playerServiceUrl, playerMapper.toDTO(player));
+      //restTemplate.put(playerServiceUrl, new PlayerDTOEr(1,1,1,"dd"));
       return "Player added successfully";
     } catch (Exception e) {
       throw new RuntimeException("Failed to add player to Player Service: " + e.getMessage(), e);
