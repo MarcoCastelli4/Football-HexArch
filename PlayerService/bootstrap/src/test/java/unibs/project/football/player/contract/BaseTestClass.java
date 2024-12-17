@@ -55,6 +55,7 @@ public abstract class BaseTestClass {
               }
             });
 
+    /*
     Mockito.when(getBestTeamPlayerUseCase.getBestTeamPlayer(anyString()))
         .thenReturn(getPlayer("Cristiano Ronaldo"));
 
@@ -80,8 +81,10 @@ public abstract class BaseTestClass {
     //            injuries1,
     //            oldTeams1);
 
+*/
+
     Mockito.when(addPlayerUseCase.addPlayer(any())).thenReturn(true);
-    // FARE ESEMPI PER FAR FALLIRE CONTRATTO
+
 
   }
 
