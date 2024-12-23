@@ -12,16 +12,16 @@ public class PlayerMapper {
     }
 
     return new Player(
-            playerDTO.getTeam(),
-            playerDTO.getName(),
-            playerDTO.getRole(),
-            playerDTO.getGoal(),
-            playerDTO.getAge(),
-            playerDTO.getGender(),
-            playerDTO.getHeight(),
-            playerDTO.getWeight(),
-            playerDTO.getInjuries(),
-            playerDTO.getOldTeams());
+        playerDTO.getTeam(),
+        playerDTO.getName(),
+        playerDTO.getRole(),
+        playerDTO.getGoal(),
+        playerDTO.getAge(),
+        playerDTO.getGender(),
+        playerDTO.getHeight(),
+        playerDTO.getWeight(),
+        playerDTO.getInjuries(),
+        playerDTO.getOldTeams());
   }
 
   // Converts from Player to PlayerDTO
@@ -31,15 +31,15 @@ public class PlayerMapper {
     }
 
     return new PlayerDTO(
-            player.getTeam(),
-            player.getName(),
-            player.getRole(),
-            player.getGoal(),
-            player.getAge(),
-            player.getGender(),
-            player.getHeight(),
-            player.getWeight(),
-            player.getInjuries(),
-            player.getOldTeams());
+        player.getTeam(),
+        player.getName(),
+        player.getRole(),
+        player.getGoal(),
+        player.getAge(),
+        player.getGender(),
+        player.getHeight(),
+        player.getWeight(),
+        player.getInjuries(),
+        player.getOldTeams());
   }
 }

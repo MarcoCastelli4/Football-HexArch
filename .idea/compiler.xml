@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="adapter" />
+        <module name="application" />
+        <module name="application (1) (unibs.project.football.player)" />
+        <module name="model (1) (unibs.project.football.player)" />
+        <module name="model" />
+        <module name="bootstrap" />
+        <module name="adapter (1) (unibs.project.football.player)" />
+        <module name="bootstrap (1) (unibs.project.football.player)" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="PlayerService" options="-parameters" />
+      <module name="TeamService" options="-parameters" />
+      <module name="adapter" options="-parameters" />
+      <module name="adapter (1) (unibs.project.football.player)" options="-parameters" />
+      <module name="application" options="-parameters" />
+      <module name="application (1) (unibs.project.football.player)" options="-parameters" />
+      <module name="bootstrap" options="-parameters" />
+      <module name="bootstrap (1) (unibs.project.football.player)" options="-parameters" />
+      <module name="model" options="-parameters" />
+      <module name="model (1) (unibs.project.football.player)" options="-parameters" />
+    </option>
+  </component>
+</project>

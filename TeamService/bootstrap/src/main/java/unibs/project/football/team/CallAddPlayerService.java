@@ -1,3 +1,4 @@
+/*
 package unibs.project.football.team;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -48,10 +49,10 @@ class CallAddPlayerService {
 
     Player player =
             new Player(
-                    "Juventus", "Marco Castelli", "Defender", 35, 24, "Male", 183, 70, injuries1, oldTeams1);
+                    "Juventus", "qwerty Castelli", "Defender", 35, 24, "Male", 183, 70, injuries1, oldTeams1);
 
     System.out.println("Let's consume the PLAYER service");
 
     outdoorAddPlayerToTeam.addPlayer(player);
   }
-}
+}*/

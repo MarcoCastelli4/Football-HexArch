@@ -4,10 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import unibs.project.football.team.player.Injurie;
-import unibs.project.football.team.player.OldTeam;
-
-import java.util.ArrayList;
 
 @Getter
 @AllArgsConstructor
@@ -17,7 +13,6 @@ public class PlayerDTOEr {
   @JsonProperty("team")
   private int team;
 
-
   @JsonProperty("height")
   private int height;
 
@@ -26,7 +21,6 @@ public class PlayerDTOEr {
 
   @JsonProperty("sex")
   private String sex;
-
 
   public int getTeam() {
     return team;
@@ -43,7 +37,4 @@ public class PlayerDTOEr {
   public String getGender() {
     return sex;
   }
-
-
-
 }

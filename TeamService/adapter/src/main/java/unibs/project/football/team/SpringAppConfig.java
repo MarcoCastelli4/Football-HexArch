@@ -16,7 +16,7 @@ public class SpringAppConfig {
 
   @Bean
   GetBestPlayerForTeamUseCase getBestPlayerForTeamUseCase(
-          OutdoorToPlayerService bestTeamPlayer, TeamRepository teamRepository) {
+      OutdoorToPlayerService bestTeamPlayer, TeamRepository teamRepository) {
     return new GetBestPlayerForTeamService(bestTeamPlayer, teamRepository);
   }
 

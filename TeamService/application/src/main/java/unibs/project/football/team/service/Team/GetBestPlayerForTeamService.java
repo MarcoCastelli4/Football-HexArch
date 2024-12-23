@@ -3,6 +3,7 @@ package unibs.project.football.team.service.Team;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import unibs.project.football.team.player.Player;
 import unibs.project.football.team.port.in.team.GetBestPlayerForTeamUseCase;
 import unibs.project.football.team.port.out.OutdoorToPlayerService;
@@ -15,7 +16,7 @@ public class GetBestPlayerForTeamService implements GetBestPlayerForTeamUseCase 
   private final OutdoorToPlayerService bestTeamPlayer;
 
   public GetBestPlayerForTeamService(
-          OutdoorToPlayerService bestTeamPlayer, TeamRepository teamRepository) {
+      OutdoorToPlayerService bestTeamPlayer, TeamRepository teamRepository) {
     this.teamRepository = teamRepository;
     this.bestTeamPlayer = bestTeamPlayer;
   }
@@ -25,7 +26,8 @@ public class GetBestPlayerForTeamService implements GetBestPlayerForTeamUseCase 
     List<Team> teams = teamRepository.findAll();
     List<Player> players = new ArrayList<>();
     for (Team team : teams) {
-      players.add(bestTeamPlayer.getBestPlayer(team.getName()));
+      ResponseEntity<Player> response= bestTeamPlayer.getBestPlayer(team.getName());
+      players.add(response.getBody());
     }
     return players;
   }

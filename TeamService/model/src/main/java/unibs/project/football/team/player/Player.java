@@ -1,9 +1,7 @@
 package unibs.project.football.team.player;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -90,15 +88,15 @@ public class Player {
     if (o == null || getClass() != o.getClass()) return false;
     Player player = (Player) o;
     return age == player.age
-            && Objects.equals(getName(), player.getName())
-            && Objects.equals(getRole(), player.getRole())
-            && Objects.equals(getTeam(), player.getTeam())
-            && Objects.equals(getGoal(), player.getGoal())
-            && Objects.equals(getAge(), player.getAge())
-            && Objects.equals(getGender(), player.getGender())
-            && Objects.equals(getHeight(), player.getHeight())
-            && Objects.equals(getWeight(), player.getWeight())
-            && Objects.equals(getInjuries(), player.getInjuries())
-            && Objects.equals(getOldTeams(), player.getOldTeams());
+        && Objects.equals(getName(), player.getName())
+        && Objects.equals(getRole(), player.getRole())
+        && Objects.equals(getTeam(), player.getTeam())
+        && Objects.equals(getGoal(), player.getGoal())
+        && Objects.equals(getAge(), player.getAge())
+        && Objects.equals(getGender(), player.getGender())
+        && Objects.equals(getHeight(), player.getHeight())
+        && Objects.equals(getWeight(), player.getWeight())
+        && Objects.equals(getInjuries(), player.getInjuries())
+        && Objects.equals(getOldTeams(), player.getOldTeams());
   }
 }
